@@ -72,10 +72,27 @@ bebewrites.tumblr.com/credits
    document.getElementById("tab"+ tabIndex).classList.add("selected");
   }
 
+  function sendXHR(type, url, data, callback) {
+   // Declare XHR for loading Journal Pages
+   var newXHR = new XMLhttpRequest() || new window.ActiveXObject("Microsoft.XMLHTTP");
+   newXHR.open(type, url, true);
+   newXHR.send(data);
+   newXHR.onreadystatechange = function() {
+    if (this.status === 200 && this.readyState === 4) {
+     callback(this.response);
+    }
+   };
+  }
+
   function defaultOpen() {
    // Show first tab on page load
    document.getElementById("tab1Content").style.display = "block";
    document.getElementById("tab1").classList.add("selected");
+
+   // Load Journal Pages
+   sendXHR("GET", "/Journal/1.html", null, function(response) {
+    document.getElementById("entryOne").innerHTML = response;
+   });
   }
  </script>
  
@@ -200,8 +217,8 @@ This is for a little introduction blurb about Star! Who is she? Why is she? This
 <section id="tab3Content" class="tab">
     <h1>Page One <i class="ph ph-pencil"></i></h1>
     
-    <div class="synopsis">
-<embed src="test.txt">
+    <div class="synopsis entryOne">
+
     </div>
     
 </section><!-- end synopsis section -->
