@@ -73,14 +73,14 @@ bebewrites.tumblr.com/credits
    document.getElementById("tab"+ tabIndex + "Content").style.display = "block";
 
    // Apply Selected to link
-   document.querySelectorAll(".link").classList.remove("selected");
-   document.getElementById("tab"+ tabIndex).classList.add("selected");
+   document.querySelectorAll(".link").removeClass("selected");
+   document.getElementById("tab"+ tabIndex).addClass("selected");
   }
 
   function defaultOpen() {
    // Show first tab on page load
    document.getElementById("tab1Content").style.display = "block";
-   document.getElementById("tab1").classList.add("selected");
+   document.getElementById("tab1").addClass("selected");
   }
  </script>
  
