@@ -170,6 +170,11 @@ main {
 
 section {margin-bottom:60px;}
 
+.tab {
+	display: none;
+ 	animation: fadein 1s;
+}
+
 
 /*---- synopsis ----*/
 
@@ -190,7 +195,7 @@ section {margin-bottom:60px;}
     margin-bottom:20px;
 }
 
-.linkblock a {
+.link {
 	display:block;
 	color:var(--text-color);
 	text-decoration: underline;
@@ -198,8 +203,9 @@ section {margin-bottom:60px;}
 	text-decoration-thickness: .125em;
 	text-decoration-color: var(--accent);
 	text-underline-offset: 2px;
+	cursor: pointer;
 }
-.linkblock a:hover {color:var(--accent);}
+.link:hover {color:var(--accent);}
 
 
 /*---- stats ----*/
