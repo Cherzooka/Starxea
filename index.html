@@ -67,6 +67,9 @@ bebewrites.tumblr.com/credits
 
    // Show the Selected Tab
    document.getElementById("tab"+ tabIndex + "Content").style.display = "block";
+
+   // Apply Selected to link
+   document.getElementbyId("tab"+ tabIndex).classList.add("selected");
   }
 
   function defaultOpen() {
