@@ -89,6 +89,11 @@ bebewrites.tumblr.com/credits
    document.getElementById("tab1Content").style.display = "block";
    document.getElementById("tab1").classList.add("selected");
 
+   // Load Inventory
+   sendXHR("GET", "Inventory.html", null, function(response) {
+    document.getElementById("inventory").innerHTML = response;
+   });
+
    // Load Journal Pages
    sendXHR("GET", "Journal/1.html", null, function(response) {
     document.getElementById("entryOne").innerHTML = response;
@@ -148,8 +153,8 @@ bebewrites.tumblr.com/credits
 <section>
     <h1>Inventory <i class="ph ph-bookmarks"></i></h1>
 
-    <div class="lists">
-        <span><b>Glittergun</b> lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio. praesent libero. sed cursus ante dapibus diam. sed nisi. nulla quis sem at nibh elementum imperdiet. </span>
+    <div class="lists" id="inventory">
+     
     </div>
 </section><!-- end section -->    
 </div><!-- end col one -->
