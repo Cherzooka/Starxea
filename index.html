@@ -26,6 +26,7 @@ bebewrites.tumblr.com/credits
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script src="https://unpkg.com/@phosphor-icons/web"></script>
+ <script src="script.js"></script>
 
 <!-- google fonts -->
 
@@ -57,50 +58,7 @@ bebewrites.tumblr.com/credits
     
     --featured-image:url(https://il2.picdn.net/shutterstock/videos/14316391/thumb/1.jpg);
 }
-</style>
-
- <script>
-  function selectTab(tabIndex) {
-   // Hide all Tabs
-      document.querySelectorAll(".tab").forEach(i => i.style.display = "none");
-
-   // Show the Selected Tab
-   document.getElementById("tab"+ tabIndex + "Content").style.display = "block";
-
-   // Apply Selected to link
-   document.querySelectorAll(".link").forEach(i => i.classList.remove("selected"));
-   document.getElementById("tab"+ tabIndex).classList.add("selected");
-  }
-
-  function sendXHR(type, url, data, callback) {
-   // Declare XHR for loading Journal Pages
-   var newXHR = new XMLHttpRequest() || new window.ActiveXObject("Microsoft.XMLHTTP");
-   newXHR.open(type, url, true);
-   newXHR.send(data);
-   newXHR.onreadystatechange = function() {
-    if (this.status === 200 && this.readyState === 4) {
-     callback(this.response);
-    }
-   };
-  }
-
-  function defaultOpen() {
-   // Show first tab on page load
-   document.getElementById("tab1Content").style.display = "block";
-   document.getElementById("tab1").classList.add("selected");
-
-   // Load Inventory
-   sendXHR("GET", "Inventory.html", null, function(response) {
-    document.getElementById("inventory").innerHTML = response;
-   });
-
-   // Load Journal Pages
-   sendXHR("GET", "Journal/1.html", null, function(response) {
-    document.getElementById("entryOne").innerHTML = response;
-   });
-  }
- </script>
- 
+</style> 
 </head>
 <body onload="defaultOpen()">
 <main>
