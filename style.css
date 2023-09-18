@@ -218,6 +218,16 @@ section {margin-bottom:60px;}
 	color:var(--accent);
 }
 
+.selected::before {
+	content: "\ed0a";
+	font-family: "Phosphor";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+}
+
 
 /*---- stats ----*/
 
