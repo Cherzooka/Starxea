@@ -90,7 +90,7 @@ bebewrites.tumblr.com/credits
    document.getElementById("tab1").classList.add("selected");
 
    // Load Journal Pages
-   sendXHR("GET", "/Journal/1.html", null, function(response) {
+   sendXHR("GET", "Journal/1.html", null, function(response) {
     document.getElementById("entryOne").innerHTML = response;
    });
   }
