@@ -91,7 +91,7 @@ bebewrites.tumblr.com/credits
 
    // Load Journal Pages
    sendXHR("GET", "Journal/1.html", null, function(response) {
-    document.getElementByClass("entryOne").innerHTML = response;
+    document.getElementById("entryOne").innerHTML = response;
    });
   }
  </script>
@@ -217,7 +217,7 @@ This is for a little introduction blurb about Star! Who is she? Why is she? This
 <section id="tab3Content" class="tab">
     <h1>Page One <i class="ph ph-pencil"></i></h1>
     
-    <div class="synopsis entryOne">
+    <div class="synopsis" id="entryOne">
 
     </div>
     
