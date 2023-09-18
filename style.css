@@ -228,6 +228,10 @@ section {margin-bottom:60px;}
 	line-height: 1;
 	color: var(--text-color);
 	text-decoration: none;
+	float: left;
+	position: relative;
+	top: 5px;
+	margin-right: 5px;
 }
 
 
