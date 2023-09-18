@@ -28,8 +28,13 @@
    document.getElementById("tab1").classList.add("selected");
 
    // Load Inventory
-   sendXHR("GET", "Inventory.html", null, function(response) {
+   sendXHR("GET", "inventory.html", null, function(response) {
     document.getElementById("inventory").innerHTML = response;
+   });
+
+    // Load Party
+       sendXHR("GET", "party.html", null, function(response) {
+    document.getElementById("character-wrap").innerHTML = response;
    });
 
    // Load Journal Pages
