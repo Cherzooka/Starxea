@@ -5,15 +5,6 @@
 wip page 08 - by @bebewrites
 pls do not remove credit, thanks!<3
 
-many sections of this code can be duplicated
-for additional sections, and you can delete
-whole sections if you don't want to use them!
-
-if you'd like to make this code ~javascript free~
-delete the slide out menu at the beginning of the 
-html section, and delete the script at the very
-bottom of the code.
-
 list of full credits:
 bebewrites.tumblr.com/credits
  
@@ -75,7 +66,7 @@ bebewrites.tumblr.com/credits
  <script>
   function openTab(evt, tabName) {
    // Declare all variables
-   var i, tabcontent, links;
+   var i, tabcontent, tablink;
 
    // Get all elements with class="tabcontent" and hide them
    tabcontent = document.getElementsByClassName("tabcontent");
@@ -83,10 +74,10 @@ bebewrites.tumblr.com/credits
     tabcontent[i].style.display = "none";
    }
 
-   // Get all elements with class="links" and remove the class "active"
-   tablinks = document.getElementsByClassName("links");
-   for (i = 0; i < links.length; i++) {
-    links[i].ClassName = links[i].className.replace(" active", "");
+   // Get all elements with class="tablink" and remove the class "active"
+   tablink = document.getElementsByClassName("link");
+   for (i = 0; i < tabllink.length; i++) {
+    tablink[i].ClassName = tablink[i].className.replace(" active", "");
    }
 
    // Show the current tab, and add an "active" class to the button that opened the tab
@@ -123,8 +114,8 @@ bebewrites.tumblr.com/credits
 <section>
     <h1>navigate <i class="ph ph-link"></i></h1>
             <div class="linkblock">
-                <button class="link" id="defaultOpen" onclick="openTab(event,'intro')">Cover Letter</button>
-                <button class="link" onclick="openTab(event,'party')">My Friends</button>
+                <button class="tablink" id="defaultOpen" onclick="openTab(event,'intro')">Cover Letter</button>
+                <button class="tablink" onclick="openTab(event,'party')">My Friends</button>
                 <a href="/">Entry One</a>
             </div>
 </section><!-- end section -->
