@@ -68,6 +68,11 @@ bebewrites.tumblr.com/credits
    // Show the Selected Tab
    document.getElementById("tab"+ tabIndex + "Content").style.display = "block";
   }
+
+  function defaultOpen() {
+   // Show first tab on page load
+   document.getElementById("tab1Content").style.display = "block";
+  }
  </script>
  
 </head>
@@ -130,7 +135,7 @@ bebewrites.tumblr.com/credits
 <div id="col-two">
 
 <!---------- synopsis section ---------->
-<section id="tab1Content" class="tab">
+<section id="tab1Content" class="tab" onload="defaultOpen()">
     <h1>Introduction <i class="ph ph-pencil"></i></h1>
     
     <div class="synopsis">
