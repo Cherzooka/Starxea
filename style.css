@@ -214,6 +214,10 @@ section {margin-bottom:60px;}
 }
 .link:hover {color:var(--accent);}
 
+.selected {
+	color:var(--accent);
+}
+
 
 /*---- stats ----*/
 
