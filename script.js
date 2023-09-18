@@ -27,13 +27,18 @@
    document.getElementById("tab1Content").style.display = "block";
    document.getElementById("tab1").classList.add("selected");
 
+    // Load Intro
+    sendXHR("GET", "Pages/intro.html", null, function(response) {
+      document.getElementById("intro").innerHTML = response;
+    });
+
    // Load Inventory
-   sendXHR("GET", "inventory.html", null, function(response) {
+   sendXHR("GET", "Pages/inventory.html", null, function(response) {
     document.getElementById("inventory").innerHTML = response;
    });
 
     // Load Party
-    sendXHR("GET", "party.html", null, function(response) {
+    sendXHR("GET", "Pages/party.html", null, function(response) {
       document.getElementById("character-wrap").innerHTML = response;
    });
 
