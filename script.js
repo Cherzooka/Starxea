@@ -33,8 +33,8 @@
    });
 
     // Load Party
-       sendXHR("GET", "party.html", null, function(response) {
-    document.getElementById("character-wrap").innerHTML = response;
+    sendXHR("GET", "party.html", null, function(response) {
+      document.getElementById("character-wrap").innerHTML = response;
    });
 
    // Load Journal Pages
