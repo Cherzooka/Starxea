@@ -91,7 +91,7 @@ bebewrites.tumblr.com/credits
 
    // Load Journal Pages
    sendXHR("GET", "Journal/1.html", null, function(response) {
-    document.getElementById("entryOne").innerHTML = response;
+    document.getElementByClass("entryOne").innerHTML = response;
    });
   }
  </script>
