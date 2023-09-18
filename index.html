@@ -1,0 +1,895 @@
+<!------------------------------------------------------------------------
+ 
+ 
+ 
+wip page 08 - by @bebewrites
+pls do not remove credit, thanks!<3
+
+many sections of this code can be duplicated
+for additional sections, and you can delete
+whole sections if you don't want to use them!
+
+if you'd like to make this code ~javascript free~
+delete the slide out menu at the beginning of the 
+html section, and delete the script at the very
+bottom of the code.
+
+list of full credits:
+bebewrites.tumblr.com/credits
+ 
+ 
+ 
+------------------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- browser tab title -->
+
+<title>a work in progress</title>
+ 
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+<!-- google fonts -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<!----- CSS ----->
+
+<style type="text/css">
+
+/* ---------------------------- customizations -------------------------- */
+ 
+:root {
+    --body-font:'Inter';
+    --text-size:12px;
+    --text-color:#444444;
+    
+    --heading-font:'Playfair Display';
+    
+    --background-color:#ffffff;
+    --accent:#d5bba5;
+    --light-accent:#f3ede8;
+    --headings:#222222;
+    --progress-bar-bg:#f1f1f1;
+    --links:#aaaaaa;
+    
+    --featured-image:url(https://images.unsplash.com/photo-1580644905998-b75a71b591b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80);
+    
+    --slide-out-image:url(https://images.unsplash.com/photo-1662329219657-ad19333b0c7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80);
+    --slide-out-bg-color:#f8f8f8;
+    --slide-out-border:#e6e6e6;
+    --slide-out-text-color:#444444;
+    --slide-out-link:#aaaaaa;
+    
+    --footer-bg:#f8f8f8;
+}
+/* ---------------------------------------------------------------------- */
+
+/* ---  fade in  --- */
+
+@-webkit-keyframes fadein {
+        0%   {opacity: 0;}
+        100% { opacity: 1; } }
+ 
+@-moz-keyframes fadein {
+        0%   { opacity: 0; }
+        100% { opacity: 1; } }
+ 
+@keyframes fadein {
+        0%   { opacity: 0; }
+        100% { opacity: 1; } }
+        
+
+/*----- BASIC STYLING -----*/
+
+body {
+    font-family:var(--body-font);
+    font-size:var(--text-size);
+    color:var(--text-color);
+    background-color:var(--background-color);
+    line-height:1.8em;
+    text-align:left;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    -moz-osx-font-smoothing:grayscale;
+    -webkit-font-smoothing:antialiased;
+    font-smoothing:antialiased;
+    -webkit-animation: fadein 1.5s;
+    -moz-animation:fadein 1.5s;
+    animation:fadein 1.5s;
+}
+
+iframe.tmblr-iframe {display:none;}
+
+a {
+    color:var(--links);
+    text-decoration: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+a:hover {
+    color:var(--accent);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+blockquote {
+    padding: 0 0 0 1em;
+    margin: 1.5em 2.5em 1.5em 1.5em;
+    font-style:italic;
+}
+
+h1 {
+    display:block;
+    font-family:var(--heading-font);
+    font-size:24px;
+    line-height:24px;
+    text-transform:lowercase;
+    font-weight:400;
+    letter-spacing:-0.5px;
+    padding:0;
+    margin:1em 0 1.5em 0;
+    color:var(--headings);
+    background: linear-gradient(120deg, var(--light-accent) 0%, var(--light-accent) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 45%;
+    background-position: 0 100%;
+}
+
+h1 i {
+    float:right;
+    padding-right:3px;
+    font-size:18px;
+    padding-top:4px;
+    color:var(--accent);
+}
+
+h2 {
+    display:block;
+    font-size:var(--text-size);
+    text-transform:lowercase;
+    font-weight:600;
+    text-align:left;
+    padding:0;
+    margin:0;
+    color:var(--headings);
+}
+
+
+/*---- header ----*/
+
+header {
+    display:block;
+    margin-bottom:20px;
+    padding:0 0.5em;
+}
+
+#title {
+    display:inline-block;
+    font-family:var(--heading-font);
+    font-size:30px;
+    line-height:32px;
+    text-transform:lowercase;
+    letter-spacing:-1px;
+    font-weight:400;
+    vertical-align:middle;
+}
+
+nav {float:right;padding-top:15px;}
+
+nav a {
+    margin-left:1.25em;
+    background-color:var(--background-color);
+    padding:3px 5px 4px 5px;
+    border-radius:3px;
+}
+
+nav a:hover {
+    background-color:var(--light-accent);
+    color:var(--text-color);
+}
+
+nav i {
+    margin-right:5px;
+    vertical-align:middle;
+}
+
+
+/*---- featured image ----*/
+
+#featured-image {
+    display:block;
+    border-radius:5px;
+    width:100%;
+    height:400px;
+    background-image:var(--featured-image);
+    background-position:center;
+    background-size:cover;
+    margin-bottom:30px;
+    filter:grayscale(45%);
+}
+
+/*---- containers ----*/
+
+main {
+    display:block;
+    width:950px;
+    height:auto;
+    margin:75px auto 50px auto;
+}
+
+#main-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#col-one {display:block;width:300px;}
+
+#col-two {display:block;width:550px;}
+
+section {margin-bottom:60px;}
+
+
+/*---- synopsis ----*/
+
+.synopsis:first-letter {
+    font-size:44px;
+    font-family:var(--heading-font);
+    float:left;
+    vertical-align:top;
+    padding:14px 14px 20px 14px;
+    background-color:var(--accent);
+    margin:4px 10px 0 0;
+}
+
+
+/*---- tags ----*/
+
+#tags {
+    display:block;
+    margin-top:25px;
+}
+
+#tags span {
+    display:inline-block;
+    border-bottom:1px dotted var(--accent);
+    margin-right:6px;
+}
+
+
+/*---- links ----*/
+
+.linkblock {
+    display:grid;
+    grid-template-columns:33% 33% 33%;
+    margin-bottom:20px;
+}
+
+.linkblock a {display:block;color:var(--text-color);}
+.linkblock a:hover {color:var(--accent);}
+
+
+/*---- stats ----*/
+
+#stats-grid {
+    display:grid;
+    grid-template-columns:50% 50%;
+    grid-gap:10px;
+}
+
+#stats span {display:block;line-height:14px;}
+
+#stats span b {display:inline-block;margin-right:0.5em;}
+
+.meter { 
+	height:8px;
+	width:97%;
+	position: relative;
+	background:var(--progress-bar-bg);
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 25px;
+	margin:2em 0 2.5em 0;
+}
+ 
+.meter > span {
+  display: block;
+  height: 100%;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color:var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+ 
+.meter > span:after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-image: linear-gradient(
+    -45deg, 
+    rgba(255, 255, 255, .2) 25%, 
+    transparent 25%, 
+    transparent 50%, 
+    rgba(255, 255, 255, .2) 50%, 
+    rgba(255, 255, 255, .2) 75%, 
+    transparent 75%, 
+    transparent
+  );
+  z-index: 1;
+  background-size: 50px 50px;
+  animation: move 2s linear infinite;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  overflow: hidden;
+}
+
+
+/*---- lists ----*/
+
+.lists {display:block;}
+
+.lists span {display:block;margin-bottom:0.5em;}
+
+.lists span b {color:var(--headings);}
+
+.lists span b:after {
+    content:'—';
+    color:var(--accent);
+    margin:0 2px 0 5px;
+    font-size:15px;
+}
+
+
+/*---- characters ----*/
+
+#character {
+    display: block;
+}
+
+#character-wrap {
+    display:block;
+}
+
+.char-box {
+    display:block;
+    height:auto;
+    margin-bottom:30px;
+}
+
+.char-box:last-of-type {
+    margin-bottom:0em;
+    padding-bottom:0em;
+    border-bottom:0px;
+}
+
+.char-img {
+    display:inline-block;
+    width:75px;
+    height:75px;
+    float:left;
+    position:absolute;
+    vertical-align:top;
+    border-radius:5px;
+    filter: grayscale(50%);
+}
+
+.char-content {
+    display:inline-block;
+    min-height:75px;
+    line-height:140%;
+    margin-left:90px;
+    vertical-align:top;
+}
+
+.name {
+    font-size:14px;
+    font-weight:700;
+}
+
+.char-subheading  {
+    display:block;
+    color:var(--links);
+    margin-bottom:0.5em;
+}
+
+.ch-bio {display:block;}
+
+
+/*---- minor characters ----*/
+
+#minor {
+    column-count:2;
+    column-gap:30px;
+}
+
+#minor span {display:block;margin-bottom:0.75em;}
+#minor span b {border-bottom:2px solid var(--light-accent);}
+
+/*---- footer ----*/
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:auto;
+    padding:70px 0;
+    background-color:var(--footer-bg);
+}
+
+#footer-wrap {
+    width:950px;
+    height:auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#foot-one {display:block;width:425px;}
+
+#foot-two {display:block;width:425px;}
+
+footer h1 {
+    display:block;
+    font-family:var(--heading-font);
+    font-size:20px;
+    font-weight:400;
+    font-style:italic;
+    letter-spacing:-0.5px;
+    padding:0;
+    margin:0 0 1em 0;
+    color:var(--headings);
+    background:none;
+}
+
+.author {
+    width:50px;
+    height:50px;
+    border-radius:5px;
+    padding:3px;
+    border:1px solid var(--accent);
+    filter: grayscale(50%);
+    margin:0.25em 0.75em 0 0;
+    float:left;
+}
+
+.author img {
+    width:50px;
+    height:50px;
+    border-radius:4px;
+    overflow:hidden;
+}
+
+.socials {
+    display:grid;
+    grid-template-columns:25% 25% 25% 25%;
+}
+
+.socials a {
+    display:inline-block;
+    margin-right:0.25em;
+    margin-bottom:1em;
+}
+
+.socials a:hover {
+    color:var(--headings);
+}
+
+.socials i {
+    display:inline-block;
+    font-size:calc( var(--text-size) + 2px);
+    vertical-align:middle;
+    margin-right:4px;
+}
+
+
+/*---- slide out ----*/
+
+.menu-open {
+    position:fixed;
+    top:15px;
+    left:15px;
+    font-size:18px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top:0;
+    left:0;
+    color:var(--slide-out-text-color);
+    background-color:var(--slide-out-bg-color);
+    border-right:1px solid var(--slide-out-border);
+    overflow-x:hidden;
+    transition:.5s ease-in-out;
+}
+
+.menu-image {
+    width:100%;
+    height:225px;
+    margin-bottom:30px;
+    background-image:var(--slide-out-image);
+    background-position:center;
+    background-size:cover;
+    filter: grayscale(50%);
+}
+
+.sidecontent {
+    margin:auto;
+    width:350px;
+    padding-bottom:30px;
+}
+
+.sidecontent a {
+    color:var(--slide-out-text-color);
+    border-bottom:2px solid var(--light-accent);
+}
+
+.sidecontent a:hover {
+    color:var(--accent);
+}
+
+.sidecontent h1 {
+    font-family:var(--heading-font);
+    color:var(--slide-out-text-color);
+    font-weight:400;
+    display:block;
+    font-size:22px;
+    text-transform:lowercase;
+    font-style:italic;
+    letter-spacing:-0.5px;
+    background: none;
+    padding:0;
+    margin:0 0 0.75em 0;
+}
+
+.sidenav .closebtn {
+    font-family:Times New Roman;
+    color:var(--text-color);
+    position:absolute;
+    top:8px;
+    right:8px;
+    text-align:center;
+    font-size:25px;
+    line-height:25px;
+    width:25px;
+    height:25px;
+    border-radius:100%;
+    background-color:var(--background-color);
+    font-weight:400;
+    transition:.2s ease-in-out;
+    z-index:10;
+}
+
+.closebtn:hover {
+    color:var(--accent);
+    background-color:#fff;
+}
+
+/*--- responsive - don't edit ---*/
+
+@media only screen and (max-width: 1100px) {
+    
+    main {width:80%;}
+    
+    section {margin-left: 0;}
+}
+
+/*--- for mobile devices ---*/
+
+@media only screen and (max-width: 720px) {
+    main, section {width: 80vw;}
+}
+
+</style>
+</head>
+<body>
+
+<!------------------------------------------------
+slide out menu content - delete this section (from here through the three dashed arrow lines) if you want a javascript-free code, or if you just don't want the slide out option.
+------------------------------------------------->
+
+<div class="menu-open">
+    <span style="cursor:pointer" onclick="openNav()"><i class="ph ph-list"></i></span>
+</div>
+
+<div id="mySidenav" class="sidenav">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <div class="menu-image"></div>
+
+    <div class="sidecontent">
+        <h1>this section will scroll</h1>
+        
+        <p>Lorem ipsum dolor sit amet. At commodi amet id fugiat harum ex blanditiis nulla cum <a href="/">consequatur accusamus</a> ut doloribus magnam ut expedita perspiciatis? Et fugiat quaerat 33 animi consectetur eum sunt reiciendis. Quo sunt quia ab doloremque totam est repellendus nulla qui magni architecto aut expedita dolores
+        <p>Eum voluptas vero ut voluptas suscipit aut consequatur adipisci qui commodi cupiditate ut autem enim At amet rerum. Est quae dicta sit adipisci animi est dignissimos harum aut explicabo galisum sit aliquam facere cum enim doloribus At blanditiis optio.
+        <p>Lorem ipsum dolor sit amet. At commodi amet id fugiat harum ex blanditiis nulla cum consequatur accusamus ut doloribus?
+    </div>
+</div>
+
+<!----------------------------------------------------->
+<!----------------------------------------------------->
+<!----------------------------------------------------->
+
+<main>
+<div id="main">
+
+<!---------- main header ---------->
+<header>
+
+    <!-- wip title goes here -->
+    <div id="title">for reasons wretched & divine</div>
+    
+<nav>
+<a href="/"><i class="ph ph-house"></i>index</a>
+<a href="/ask"><i class="ph ph-chats-circle"></i>contact</a>
+<a href="www.tumblr.com/dashboard"><i class="ph ph-list"></i>dash</a>
+<a href="https://bebewrites.tumblr.com"><i class="ph ph-code"></i>theme</a>
+</nav>
+</header>
+
+<div id="featured-image"></div>
+<div id="main-wrap">
+<div id="col-two">
+
+<!---------- synopsis section ---------->
+<section>
+    <h1>synopsis <i class="ph ph-pencil"></i></h1>
+    
+    <div class="synopsis">
+        Lorem ipsum dolor sit amet. At commodi amet id <a href="/">fugiat harum</a> ex blanditiis nulla cum consequatur accusamus ut doloribus magnam ut expedita perspiciatis? Et fugiat quaerat 33 animi consectetur eum sunt reiciendis. Quo sunt quia ab doloremque totam est repellendus nulla qui magni architecto aut expedita dolores.Eum voluptas vero ut voluptas suscipit aut consequatur adipisci qui commodi cupiditate ut autem enim At amet rerum. Est quae dicta sit adipisci animi est dignissimos harum aut explicabo galisum sit aliquam facere cum enim doloribus At blanditiis optio.
+    </div>
+
+    <!-- tags section - you can delete if you don't want -->
+    <div id="tags">
+        <b>tagged as:</b>&nbsp;
+        <span>idiots to lovers,</span>
+        <span>angst and pining,</span>
+        <span>ample amounts of charcuterie,</span>
+        <span>chaos vs order,</span>
+        <span>many bottles of wine,</span>
+        <span>a dumpster fire but make it fantasy,</span>
+        <span>gods and monsters,</span>
+        <span>royally gay shenanigans,</span>
+        <span>villian with a sweet tooth</span>
+    </div><!-- end tags -->
+    
+</section><!-- end synopsis section -->
+
+
+<!-- main characters section - copy the "character one" section and paste after "character one" for new characters. it helps to number them so you don't get confused :) -->
+
+<section id="character">
+
+    <h1>major characters <i class="ph ph-users-three"></i></h1>
+    
+    <div id="character-wrap">
+
+        <!-- character one -->
+        <div class="char-box">
+            
+            <!-- image --><img class="char-img" src="https://64.media.tumblr.com/07a80a1cef94ae7a7f3913677c63002b/7421119c06490779-d9/s540x810/2f7909426d53416446758b43f8f67143b7f6c2b7.jpg"/>
+        
+            <div class="char-content">
+                <div class="name">character name</div>
+
+                <div class="char-subheading">subheading goes here</div>
+            
+            <div class="ch-bio">lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio. praesent libero. sed cursus ante dapibus diam. sed nisi nulla quis.</div>
+            </div>
+        </div><!-- end -->
+
+    
+    </div><!-- end character wrap -->
+</section><!-- end major characters section -->
+
+
+<!---------- minor characters ---------->
+
+<section>
+<h1>minor characters <i class="ph ph-user-list"></i></h1>
+
+    <div id="minor">
+        <span><b>Character Name:</b> lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio.</span> 
+        
+        <span><b>Character Name:</b> praesent mauris. fusce nec tellus sed augue semper porta.</span> 
+
+        <span><b>Character Name:</b> lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio.</span> 
+        
+        <span><b>Character Name:</b> praesent mauris. fusce nec tellus sed augue semper porta.</span> 
+        
+        <span><b>Character Name:</b> lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio.</span> 
+        
+        <span><b>Character Name:</b> praesent mauris. fusce nec tellus sed augue semper porta.</span>  
+    </div>
+</section><!-- end minor characters section -->
+
+
+<!-- if you want to add another section below the minor characters for additional information, just copy this code below (from the open section tag to the close section tag) and paste it right above these instructions.
+
+<section>
+    <h1>heading</h1>
+        <p>Type your additional info here. You can also do this in the sidebar column.
+    
+    <div class="lists">
+        <span><b>Also</b> you can do lists like this.</span>
+    </div>
+</section>
+
+-->
+
+</div><!-- end col two -->
+<div id="col-one">
+
+<!----------  links section ---------->
+
+<section>
+    <h1>navigate <i class="ph ph-link"></i></h1>
+    
+        <h2>explore</h2>
+            <div class="linkblock">
+                <a href="/">wip tag</a>
+                <a href="/">intro post</a>
+                <a href="/">character tag</a>
+                <a href="/">settings</a>
+                <a href="/">playlist</a>
+                <a href="/">inspo tag</a>
+            </div>
+    
+        <h2>elsewhere</h2>
+            <div class="linkblock">
+                <a href="/">pinterest</a>
+                <a href="">unsplash</a>
+                <a href="/">sideblog</a>
+                <a href="/">spotify</a>
+                <a href="/">website</a>
+                <a href="/">link</a>
+            </div>
+</section><!-- end section -->
+
+    
+<!---------- details section ---------->
+
+<section id="details-wrap">
+<div id="stats">
+    
+    <h1>details <i class="ph ph-sparkle"></i></h1>
+    
+    <div id="stats-grid">
+        <span><b>status:</b>primary wip</span>
+        <span><b>genre:</b>adult fantasy</span>
+        <span><b>started:</b>summer 2022</span>
+        <span><b>draft:</b>second draft</span>
+        <span><b>words:</b>47k of 80k</span>
+        <span><b>pov:</b>dual pov</span>
+    </div>
+    
+    <!-- adjust percentage below for progress bar -->
+    <div class="meter">
+        <span style="width: 60%"></span>
+    </div>
+
+</div>
+</section><!-- end details section -->
+
+
+<!---- terms to know - feel free to change this to whatever you want! ---->
+
+<section>
+    <h1>terms to know <i class="ph ph-bookmarks"></i></h1>
+
+    <div class="lists">
+        <span><b>A Definition</b> lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio. praesent libero. sed cursus ante dapibus diam. sed nisi. nulla quis sem at nibh elementum imperdiet. </span>
+        <span><b>Important Term</b> lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio. praesent libero. sed cursus ante dapibus diam. </span>
+        <span><b>Something Important</b> lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio. praesent libero. sed cursus ante dapibus diam.</span>
+        <span><b>Useful Info</b> lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio. praesent libero. sed cursus ante dapibus diam.</span>
+    </div>
+</section><!-- end section -->
+
+
+<!---------- locations - again, this can be anything you want or you can delete this section! ---------->
+
+<section>
+    <h1>locations <i class="ph ph-map-pin"></i></h1>
+
+    <div class="lists">
+        <span><b>Label</b> lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio. praesent libero. sed cursus ante dapibus diam.</span>
+        
+        <span><b>Label</b> lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio. praesent libero. sed cursus ante dapibus diam.</span>
+        
+        <span><b>Label</b> lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio. praesent libero. sed cursus ante dapibus diam.</span>
+    </div>
+</section><!-- end section -->
+    
+    
+</div><!-- end col one -->
+</div><!-- end main wrap -->
+</main><!-- end main container -->
+
+
+<!------ footer - you can delete this section if you don't want it! ------>
+
+<footer>
+    <div id="footer-wrap">
+        
+        <div id="foot-one">
+            <h1>about the author</h1>
+            
+            <!-- author icon - delete if you don't want! -->
+            <div class="author"><img src="https://64.media.tumblr.com/e5f7230efe492682f314b9133d91e049/7421119c06490779-33/s400x600/b24899d1a91b32157092b7ac498d921553235c9f.jpg"/></div>
+            
+            Lorem ipsum dolor sit amet. At commodi amet id fugiat harum ex blanditiis nulla cum consequatur accusamus ut doloribus magnam ut expedita perspiciatis? Et fugiat quaerat 33 animi consectetur eum sunt reiciendis. Quo sunt quia ab doloremque totam est repellendus nulla qui magni architecto aut expedita dolores.
+        </div>
+        
+        <div id="foot-two">
+            <h1>social</h1>
+            
+<!-- if you want to delete the social links and just put text here, you can! just delete from "socials" to "end socials" and then add any text you want. also feel free to add/remove whichever socials you want, there are four columns though, so it'll look best in multiples of four. -->
+            
+            <!-- socials -->
+            <div class="socials">
+            <a href="/"><i class="ph ph-instagram-logo"></i> instagram</a>
+            <a href="/"><i class="ph ph-facebook-logo"></i> facebook</a>
+            <a href="/"><i class="ph ph-pinterest-logo"></i> pinterest</a>
+            <a href="/"><i class="ph ph-tiktok-logo"></i> tiktok</a>
+            <a href="/"><i class="ph ph-twitter-logo"></i> twitter</a>
+            <a href="/"><i class="ph ph-discord-logo"></i> discord</a>
+            <a href="/"><i class="ph ph-patreon-logo"></i> patreon</a>
+            <a href="/"><i class="ph ph-needle"></i> threads</a>
+            <a href="/"><i class="ph ph-youtube-logo"></i> youtube</a>
+            <a href="/"><i class="ph ph-goodreads-logo"></i> goodreads</a>
+            <a href="/"><i class="ph ph-desktop"></i> website</a>
+            <a href="/"><i class="ph ph-envelope-simple"></i> substack</a>
+            </div><!-- end socials-->
+            
+        </div>
+    </div>
+</footer><!-- end footer -->
+
+
+<!-- remove this script if you want a javascript-free code -->
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "425px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+</body>
+</html>
