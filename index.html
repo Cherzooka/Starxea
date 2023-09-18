@@ -74,7 +74,7 @@ bebewrites.tumblr.com/credits
 
   function sendXHR(type, url, data, callback) {
    // Declare XHR for loading Journal Pages
-   var newXHR = new XMLhttpRequest() || new window.ActiveXObject("Microsoft.XMLHTTP");
+   var newXHR = new XMLHttpRequest() || new window.ActiveXObject("Microsoft.XMLHTTP");
    newXHR.open(type, url, true);
    newXHR.send(data);
    newXHR.onreadystatechange = function() {
