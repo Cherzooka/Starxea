@@ -58,34 +58,19 @@ bebewrites.tumblr.com/credits
     --featured-image:url(https://il2.picdn.net/shutterstock/videos/14316391/thumb/1.jpg);
 }
 
-.tabcontent {
- display:none;!important
+#tab1Content, #tab2Content {
+ display: none;
 }
 </style>
 
  <script>
-  function openTab(evt, tabName) {
-   // Declare all variables
-   var i, tabcontent, tablink;
+  function selectTab(tabIndex) {
+   // Hide all Tabs
+   document.getElementById("tab1Content").style.display = "none";
+   document.getElementById("tab2Content").style.display = "none";
 
-   // Get all elements with class="tabcontent" and hide them
-   tabcontent = document.getElementsByClassName("tabcontent");
-   for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-   }
-
-   // Get all elements with class="tablink" and remove the class "active"
-   tablink = document.getElementsByClassName("link");
-   for (i = 0; i < tablink.length; i++) {
-    tablink[i].ClassName = tablink[i].className.replace(" active", "");
-   }
-
-   // Show the current tab, and add an "active" class to the button that opened the tab
-   document.getElementById(tabName).style.display = "block";
-   evt.currentTarget.className += " active";
-
-   // Get the element with id="defaultOpen" and click on it
-   document.getElementById("defaultOpen").click();
+   // Show the Selected Tab
+   document.getElementById("tab"+ tabIndex + "Content").style.display = "block";
   }
  </script>
  
@@ -114,8 +99,8 @@ bebewrites.tumblr.com/credits
 <section>
     <h1>navigate <i class="ph ph-link"></i></h1>
             <div class="linkblock">
-                <button class="tablink" id="defaultOpen" onclick="openTab(event,'intro')">Cover Letter</button>
-                <button class="tablink" onclick="openTab(event,'character')">My Friends</button>
+                <div id="tab1" onClick="JavaScript:selectTab(1);">Cover Letter</div>
+                <div id="tab2" onClick="JavaScript:selectTab(2);">My Friends</div>
                 <a href="/">Entry One</a>
             </div>
 </section><!-- end section -->
@@ -149,7 +134,7 @@ bebewrites.tumblr.com/credits
 <div id="col-two">
 
 <!---------- synopsis section ---------->
-<section id="intro" class="tabcontent">
+<section id="tab1Content>
     <h1>Introduction <i class="ph ph-pencil"></i></h1>
     
     <div class="synopsis">
@@ -161,7 +146,7 @@ This is for a little introduction blurb about Star! Who is she? Why is she? This
 
 <!-- main characters section - copy the "character one" section and paste after "character one" for new characters. it helps to number them so you don't get confused :) -->
 
-<section id="character" class="tabcontent">
+<section id="character tab2Content">
     <h1>Friends <i class="ph ph-users-three"></i></h1>
     <div id="character-wrap">
 
