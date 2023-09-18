@@ -67,19 +67,36 @@ bebewrites.tumblr.com/credits
     --featured-image:url(https://il2.picdn.net/shutterstock/videos/14316391/thumb/1.jpg);
 }
 
- .tabs {
-    display: none;
- }
-
-.tabs [id^="tab"]:checked + label {
-  top: 0;
-  padding-top: 17px;
-  background: #612e76;
-}
-.tabs [id^="tab"]:checked ~ [id^="tab-content"] {
-  display: block;
+.tabcontent {
+ display:none;!important
 }
 </style>
+
+ <script>
+  function openTab(evt, tabName) {
+   // Declare all variables
+   var i, tabcontent, links;
+
+   // Get all elements with class="tabcontent" and hide them
+   tabcontent = document.getElementsByClassName("tabcontent");
+   for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+   }
+
+   // Get all elements with class="links" and remove the class "active"
+   tablinks = document.getElementsByClassName("links");
+   for (i = 0; i < links.length; i++) {
+    links[i].ClassName = links[i].className.replace(" active", "");
+   }
+
+   // Show the current tab, and add an "active" class to the button that opened the tab
+   document.getElementById(tabName).style.display = "block";
+   evt.currentTarget.className += " active";
+
+   // Get the element with id="defaultOpen" and click on it
+   document.getElementById("defaultOpen").click();
+ </script>
+ 
 </head>
 <body>
 <main>
@@ -105,13 +122,9 @@ bebewrites.tumblr.com/credits
 <section>
     <h1>navigate <i class="ph ph-link"></i></h1>
             <div class="linkblock">
-                <a href="/">Cover Letter</a>
-                <a href="/">My Friends</a>
+                <button class="link" id="defaultOpen" onclick="openTab(event,'intro')">Cover Letter</button>
+                <button class="link" onclick="openTab(event,'party')">My Friends</button>
                 <a href="/">Entry One</a>
-             <input type="radio" name="tabs" id="tab1" checked />
-                <label for="tab1" role="tab" aria-selected="true" aria-controls="panel1" tabindex="0">Intro</label>
-            <input type="radio" name="tabs" id="tab2" checked />
-                <label for="tab2" role="tab" aria-selected="true" aria-controls="panel1" tabindex="0">Party</label>
             </div>
 </section><!-- end section -->
 
@@ -144,7 +157,7 @@ bebewrites.tumblr.com/credits
 <div id="col-two">
 
 <!---------- synopsis section ---------->
-<section id="tab-content1" class="tab-content" role="tabpanel" aria-labelledby="intro" aria-hidden="false">
+<section id="intro" class="tabcontent">
     <h1>Introduction <i class="ph ph-pencil"></i></h1>
     
     <div class="synopsis">
@@ -156,7 +169,7 @@ This is for a little introduction blurb about Star! Who is she? Why is she? This
 
 <!-- main characters section - copy the "character one" section and paste after "character one" for new characters. it helps to number them so you don't get confused :) -->
 
-<section id="tab-content2 character" class="tab-content" role="tabpanel" aria-labelledby="specification" aria-hidden="true">
+<section id="character party" class="tabcontent">
     <h1>Friends <i class="ph ph-users-three"></i></h1>
     <div id="character-wrap">
 
