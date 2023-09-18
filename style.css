@@ -172,7 +172,11 @@ section {margin-bottom:60px;}
 
 .tab {
 	display: none;
- 	animation: fadein 1s;
+	-webkit-transition: all 1s;
+    	-moz-transition: all 1s;
+    	-ms-transition: all 1s;
+    	-o-transition: all 1s;
+   	transition: all 1s;
 }
 
 
@@ -204,6 +208,11 @@ section {margin-bottom:60px;}
 	text-decoration-color: var(--accent);
 	text-underline-offset: 2px;
 	cursor: pointer;
+	-webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
 .link:hover {color:var(--accent);}
 
