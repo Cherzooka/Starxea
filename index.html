@@ -62,8 +62,7 @@ bebewrites.tumblr.com/credits
  <script>
   function selectTab(tabIndex) {
    // Hide all Tabs
-   document.getElementById("tab1Content").style.display = "none";
-   document.getElementById("tab2Content").style.display = "none";
+      document.querySelectAll(".tab").forEach(i => i.style.display = "none";
 
    // Show the Selected Tab
    document.getElementById("tab"+ tabIndex + "Content").style.display = "block";
@@ -107,7 +106,7 @@ bebewrites.tumblr.com/credits
             <div class="linkblock">
                 <div id="tab1" class="link" onClick="JavaScript:selectTab(1);">Cover Letter</div>
                 <div id="tab2" class="link" onClick="JavaScript:selectTab(2);">My Friends</div>
-                <a href="/">Entry One</a>
+                <div id="tab3" class="link" onClick="JavaScript:selectTab(3);">Entry One</div>
             </div>
 </section><!-- end section -->
 
@@ -151,7 +150,6 @@ This is for a little introduction blurb about Star! Who is she? Why is she? This
 
 
 <!-- main characters section - copy the "character one" section and paste after "character one" for new characters. it helps to number them so you don't get confused :) -->
-
 <section id="tab2Content" class="tab">
     <h1>Friends <i class="ph ph-users-three"></i></h1>
     <div id="character-wrap">
@@ -195,10 +193,18 @@ This is for a little introduction blurb about Star! Who is she? Why is she? This
             <div class="ch-bio">lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio. praesent libero. sed cursus ante dapibus diam. sed nisi nulla quis.</div>
             </div>
         </div><!-- end -->
-
-    
     </div><!-- end character wrap -->
 </section><!-- end major characters section -->
+
+<!---------- synopsis section ---------->
+<section id="tab3Content" class="tab">
+    <h1>Page Once <i class="ph ph-pencil"></i></h1>
+    
+    <div class="synopsis">
+Journal Entry One, for Session One. 
+    </div>
+    
+</section><!-- end synopsis section -->
  
 </div><!-- end col two -->    
 </div><!-- end main wrap -->
