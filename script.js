@@ -33,7 +33,7 @@
     });
 
     // Load Tab Links
-    sendXHR("GET", "Pages/tabs.html", null, function(response") {
+    sendXHR("GET", "Pages/tabs.html", null, function(response) {
       document.getElementById("links").innerHTML = response;
     });
 
