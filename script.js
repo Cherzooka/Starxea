@@ -23,10 +23,6 @@
   }
 
   function defaultOpen() {
-   // Show first tab on page load
-   document.getElementById("tab1Content").style.display = "block";
-   document.getElementById("tab1").classList.add("selected");
-
     // Load Intro
     sendXHR("GET", "Pages/intro.html", null, function(response) {
       document.getElementById("intro").innerHTML = response;
@@ -47,8 +43,12 @@
       document.getElementById("character-wrap").innerHTML = response;
    });
 
-   // Load Journal Pages
-   sendXHR("GET", "Journal/1.html", null, function(response) {
-    document.getElementById("entryOne").innerHTML = response;
+    // Load Journal Pages
+    sendXHR("GET", "Journal/1.html", null, function(response) {
+      document.getElementById("entryOne").innerHTML = response;
    });
+
+    // Show first tab on page load
+    document.getElementById("tab1Content").style.display = "block";
+    document.getElementById("tab1").classList.add("selected");
   }
