@@ -52,5 +52,5 @@
     document.getElementById("tab1Content").style.display = "block";
     setTimeout(function(){
       document.getElementById("tab1").classList.add("selected");
-    }, 1000);
+    }, 100);
                }
