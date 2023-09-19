@@ -32,6 +32,11 @@
       document.getElementById("intro").innerHTML = response;
     });
 
+    // Load Tab Links
+    sendXHR("GET", "Pages/tabs.html", null, function(response") {
+      document.getElementById("links").innerHTML = response;
+    });
+
    // Load Inventory
    sendXHR("GET", "Pages/inventory.html", null, function(response) {
     document.getElementById("inventory").innerHTML = response;
