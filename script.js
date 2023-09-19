@@ -29,7 +29,6 @@ function sleep(milliseconds) {
       break;
     }
   }
-    alert("woke up!");
 }
 
   function defaultOpen() {
