@@ -22,15 +22,6 @@
    };
   }
 
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}
-
   function defaultOpen() {
     // Load Intro
     sendXHR("GET", "Pages/intro.html", null, function(response) {
@@ -57,9 +48,9 @@ function sleep(milliseconds) {
       document.getElementById("entryOne").innerHTML = response;
    });
 
-    sleep(2000);
-
     // Show first tab on page load
     document.getElementById("tab1Content").style.display = "block";
-    document.getElementById("tab1").classList.add("selected");
-  }
+    setTimeout(function(){
+      document.getElementById("tab1").classList.add("selected");
+    }, 1000);
+               }
