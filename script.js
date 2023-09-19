@@ -48,6 +48,8 @@
       document.getElementById("entryOne").innerHTML = response;
    });
 
+    wait(1000);
+
     // Show first tab on page load
     document.getElementById("tab1Content").style.display = "block";
     document.getElementById("tab1").classList.add("selected");
