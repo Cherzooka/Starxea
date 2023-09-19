@@ -57,7 +57,7 @@ function sleep(milliseconds) {
       document.getElementById("entryOne").innerHTML = response;
    });
 
-    sleep(1000);
+    sleep(2000);
 
     // Show first tab on page load
     document.getElementById("tab1Content").style.display = "block";
