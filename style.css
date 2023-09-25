@@ -22,7 +22,7 @@ body {
     font-size:var(--text-size);
     color:var(--text-color);
     background-color:var(--background-color);
-	background-image: url(img/__td_seamless_space_background_3_by_janisschmidt_ddv14fm-fullview.jpg);
+	background-image: url(img/back.jpg);
 	background-position: center;
     line-height:1.8em;
     text-align:left;
